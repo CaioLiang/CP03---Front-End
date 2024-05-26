@@ -1,16 +1,31 @@
 const Todoform = document.querySelector("#todo-form")
-const tarefa = document.querySelector("#new-task")
-var keyDelete = 0
+const adicionarTarefa = document.querySelector("#new-task")
+var keyCount = 0
 
+ while (keyCount < localStorage.length) {
+    keyCount++
+    const reloadTask = localStorage.getItem(keyCount) 
+    
+    var adicionarTarefaFormatado = keyCount + ' - ' + reloadTask
+    const valueTask = adicionarTarefaFormatado
 
+    const addDiv = document.createElement("div")
+    addDiv.classList.add("list-task")
+    
+    const addText = document.createElement("h3")
+    addText.innerText = valueTask;
+    addDiv.appendChild(addText)
+    Todoform.appendChild(addDiv) 
+
+}
 
 Todoform.addEventListener("submit", (event) => {
     event.preventDefault();
     
-    keyDelete++
+    keyCount++
     
-    var tarefaFormatado = keyDelete + ' - ' + tarefa.value
-    const valueTask = tarefaFormatado
+    var adicionarTarefaFormatado = keyCount + ' - ' + adicionarTarefa.value
+    const valueTask = adicionarTarefaFormatado
 
     const addDiv = document.createElement("div")
     addDiv.classList.add("list-task")
@@ -20,9 +35,9 @@ Todoform.addEventListener("submit", (event) => {
     addDiv.appendChild(addText)
     Todoform.appendChild(addDiv) 
     
-    localStorage.setItem(keyDelete, tarefa.value)
+    localStorage.setItem(keyCount, adicionarTarefa.value)
     
-    tarefa.value = ""
-    tarefa.focus();
+    adicionarTarefa.value = ""
+    adicionarTarefa.focus();
 
 })

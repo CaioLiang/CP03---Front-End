@@ -98,8 +98,10 @@ h1 {
 }
 
 .list-task {
-    background-color: orange;
+    text-align: start;
+    background-color: rgb(229, 240, 83);
     margin: 0.2rem;
+    padding-left: 0.7rem;
     width: 100%;
-
+    border-radius: 5px;
 }

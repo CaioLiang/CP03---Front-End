@@ -2,14 +2,15 @@ const Todoform = document.querySelector("#todo-form")
 const adicionarTarefa = document.querySelector("#new-task")
 var keyCount = 0
 
-//colocando os elementos do localStorage
- while (keyCount < localStorage.length) {
+// Colocando os elementos do localStorage
+while (keyCount < localStorage.length) {
     keyCount++
     const reloadTask = localStorage.getItem(keyCount) 
     
     var adicionarTarefaFormatado = keyCount + ' - ' + reloadTask
     const valueTask = adicionarTarefaFormatado
-
+    
+    // Criando elementos da lista de tarefas
     const addDiv = document.createElement("div")
     addDiv.classList.add("list-task")
     
@@ -30,7 +31,7 @@ Todoform.addEventListener("submit", (event) => {
     
     keyCount++
     
-    //criando elementos da lista de tarefas
+    // Criando elementos da lista de tarefas
     var adicionarTarefaFormatado = keyCount + ' - ' + adicionarTarefa.value
     const valueTask = adicionarTarefaFormatado
 
@@ -60,6 +61,10 @@ document.addEventListener("click", (event) => {
     const divProxima  = clickRemove.closest("div")
     
     if(clickRemove.classList.contains("button-remove")){
+
         divProxima.remove()
+        
+        const taskRemover = divProxima.querySelector("h3").innerText.split(" - ")[0]
+        localStorage.removeItem(taskRemover)
     }
 })

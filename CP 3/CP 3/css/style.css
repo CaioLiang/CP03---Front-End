@@ -89,7 +89,17 @@ h1 {
     background: #218838;
 }
 
-#area-tarefas{
-    background-color: #218838;
+#todo-form{
+    display: inline-block;
+}
+
+#form-entrada {
+    display: flex;
+}
+
+.list-task {
+    background-color: orange;
+    margin: 0.2rem;
     width: 100%;
+
 }
